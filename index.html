@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>From Giem to Gwen</title>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #fbd3e9, #bb377d);
+        font-family: 'Georgia', serif;
+    }
+
+    .letter {
+        background: white;
+        width: 90%;
+        max-width: 700px;
+        padding: 40px;
+        border-radius: 18px;
+        box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: normal;
+    }
+
+    p {
+        line-height: 1.7;
+        font-size: 16px;
+        margin-bottom: 18px;
+    }
+
+    .signature {
+        text-align: right;
+        font-style: italic;
+        margin-top: 30px;
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 120px;
+        padding: 15px;
+        font-size: 15px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        resize: vertical;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 12px 28px;
+        border-radius: 30px;
+        border: none;
+        background: #bb377d;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .success {
+        margin-top: 15px;
+        color: #bb377d;
+        display: none;
+        font-size: 16px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="letter">
+    <h1>For Gwen</h1>
+
+    <p>Hello po, Gwen, beb…</p>
+
+    <p>
+        I hope we are okay lang po talaga ha 🥺  
+        I do admit na nagchachange din me ng way of chatting bit by bit since nung
+        na feel q rin na tinatamad ka para or lagi kang wala sa mood magchat,
+        though mali ko was not realizing na u felt that first pala and I didn’t know.
+        So ayun, we kept mirroring each other pala 🙁
+    </p>
+
+    <p>
+        I did bring it up nung nagkita us and u said na para ngang tinatamad ka lang,
+        and akala q was that in general yon, so inaccept q nalang,
+        not knowing na my fault pala. Sorry po if ganon 🥺🥺
+    </p>
+
+    <p>
+        You do know nmn na wala aq ginagawa maghapon usually, and just waiting for us
+        to chat, looking for tiktoks/posts/memes to save and send asap or later,
+        music and art, cats and stuffs.And if not naman, I’m just mostly asleep during the day,even during lunch na nde na kita nababalitaan if nagkain ka na b or what.
+        I just know na u are taking care of yourself nmn regardless.
+    </p>
+
+    <p>
+        Again po, I still want to chat with u, actively, and enjoy our talks
+        ket ano pa man ah 🥺 
+        In this chat lng kita makausap if di us magkasama,
+        and I still want to cling to u even here.
+    </p>
+
+    <p>
+        This is my request for this time lng po, please accept it ☹️  
+        please po 🥺🥺
+    </p>
+
+    <div class="signature">— Giem</div>
+
+    <h3>Reply for Giem 💬</h3>
+
+    <form id="replyForm">
+        <textarea name="entry.884946657"
+                  placeholder="You can reply here, Gwen…"
+                  required></textarea>
+
+        <button type="submit">Send Reply</button>
+    </form>
+
+    <div class="success" id="successMsg">
+        Your reply was sent 💗
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById("replyForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch("https://docs.google.com/forms/d/e/1FAIpQLSfoF5GNrDIicF17ak-oqiNgp1Kl0J_Zjhr151SjtQfuopWpXw/formResponse", {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+        }).then(() => {
+            successMsg.style.display = "block";
+            form.reset();
+        });
+    });
+</script>
+
+</body>
+</html>
